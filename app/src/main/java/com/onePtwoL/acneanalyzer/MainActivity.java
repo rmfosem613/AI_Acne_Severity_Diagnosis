@@ -1,5 +1,4 @@
 package com.onePtwoL.acneanalyzer;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
@@ -160,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
     /* 진단 버튼 클릭시 이미지 효과 */
     public void setActionBarButton(){
         // UI 수정 : 버튼 Color 변경
+
         NextImageView.setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.SRC_IN);
 
         // 버튼 클릭시 실행되는 리스너
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                                                                 loadingDialog.dismiss();
                                                             }
                                                         }
-                                                , 3000);
+                                                        , 3000);
 
 
                                             } catch (JSONException e) {
@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            });
+        });
 
 
 
@@ -493,4 +493,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
