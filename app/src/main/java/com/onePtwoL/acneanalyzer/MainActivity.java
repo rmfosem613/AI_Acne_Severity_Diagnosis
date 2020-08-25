@@ -1,5 +1,4 @@
 package com.onePtwoL.acneanalyzer;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
@@ -64,8 +63,8 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
     /* Activity와 연결된 컴포넌트 */
-    Button AddPicBtn;
-    ImageView DiagnosisImageView, NextImageView, TestImageView;
+    ImageButton AddPicBtn;
+    ImageView NextImageView, TestImageView;
     LinearLayout NextLinearLayout;
 
     /* RecyclerView와 관련된 컴포넌트 */
@@ -105,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         AddPicBtn = findViewById(R.id.add_pic_btn);
-        DiagnosisImageView = findViewById(R.id.diag_ImageView);
         NextImageView = findViewById(R.id.next_ImageView);
         NextLinearLayout = findViewById(R.id.next_LinearLayout);
 
@@ -161,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     /* 진단 버튼 클릭시 이미지 효과 */
     public void setActionBarButton(){
         // UI 수정 : 버튼 Color 변경
-        DiagnosisImageView.setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.SRC_IN);
+
         NextImageView.setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.SRC_IN);
 
         // 버튼 클릭시 실행되는 리스너
@@ -226,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
                                                                 loadingDialog.dismiss();
                                                             }
                                                         }
-                                                , 3000);
+                                                        , 3000);
 
 
                                             } catch (JSONException e) {
@@ -245,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            });
+        });
 
 
 
@@ -495,4 +493,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
