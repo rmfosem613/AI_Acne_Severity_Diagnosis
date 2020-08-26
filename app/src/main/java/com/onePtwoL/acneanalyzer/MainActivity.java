@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                                                                 loadingDialog.dismiss();
                                                             }
                                                         }
-                                                , 3000);
+                                                        , 3000);
 
 
                                             } catch (JSONException e) {
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-            });
+        });
 
 
 
@@ -495,4 +495,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-

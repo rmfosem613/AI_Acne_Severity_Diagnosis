@@ -23,8 +23,8 @@ import java.util.ArrayList;
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
     private ArrayList<Result> mList;
     public static class MyViewHolder2 extends RecyclerView.ViewHolder {
-        public ImageView resultImage;
-        public TextView resultTypeTextView, cureTextView;
+        public ImageView resultImage, seriousImage;
+        public TextView resultTypeTextView, cureTextView, resalveView, salveView;
         public CheckBox checkBoxHome, checkBoxHospital, checkBoxInfection;
 
         public MyViewHolder2(View v) {
@@ -32,9 +32,9 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
             resultImage = v.findViewById(R.id.result_skin_imageView);
             resultTypeTextView = v.findViewById(R.id.result_type_textView);
             cureTextView = v.findViewById(R.id.result_cure_textView);
-            checkBoxHome = v.findViewById(R.id.checkbox_home);
-            checkBoxHospital = v.findViewById(R.id.checkbox_hospital);
-            checkBoxInfection = v.findViewById(R.id.checkbox_infection);
+
+            seriousImage = v.findViewById(R.id.result_serious_imageView);
+            salveView = v.findViewById(R.id.result_salve_textView);
 
         }
     }
@@ -65,50 +65,41 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
         // 결과 적용
         String typeNumber = mList.get(position).getAcneTypeNum();
         if(typeNumber.equals("1") == true){
-            holder.resultTypeTextView.setText("화이트헤드 (1단계)");
-            holder.checkBoxHome.setChecked(true);
-            holder.checkBoxHospital.setChecked(false);
-            holder.checkBoxInfection.setChecked(false);
+            holder.resultTypeTextView.setText("화이트헤드");
             holder.cureTextView.setText(
-                    "스팀타올로 모공을 연 뒤 피지연화제품으로 피지를 녹이고 모공 수축 팩을 모공을 수축시켜야 합니다. " +
-                            "압출 할 경우, 압출기, 소독용 솜, 면봉을 활용하여 제거해야 합니다. " +
-                            "또한 주기적으로 각질 제거를 하여 모공이 막히지 않게 관리하여야 합니다.");
+                    "1. 스팀타월로 모공 열어주기\n2. 클랜징 오일 세안하기(식물성 오일 추천)\n3. 모공 수축팩 사용");
+            holder.seriousImage.setImageResource(R.drawable.one);
+            holder.salveView.setText("- 바르는 약\n- 먹는 약");
         }else if(typeNumber.equals("2") == true){
-            holder.resultTypeTextView.setText("블랙헤드 (2단계)");
-            holder.checkBoxHome.setChecked(true);
-            holder.checkBoxHospital.setChecked(false);
-            holder.checkBoxInfection.setChecked(false);
+            holder.resultTypeTextView.setText("블랙헤드");
             holder.cureTextView.setText(
-                    "스팀 타올로 모공을 열어 피지연화 제품으로 피지를 녹이고 모공 수축 기능 제품으로 모공을 수축시켜야 합니다. " +
-                            "그 뒤, 수분감 있는 기초 화장품으로 마무리하여 빈 모공을 채워줍니다. ");
+                    "1. 하루에 두 번만 세수하기 (아침, 잠들기 전)\n2. 여드름 원성(여드름을 유발하는 성분)이 아닌 제품 구매\n3. 운동후 깨끗이 씻기");
+            holder.seriousImage.setImageResource(R.drawable.two);
+            holder.salveView.setText("- 바르는 약\n- 먹는 약");
 
         }else if(typeNumber.equals("3") == true){
-            holder.resultTypeTextView.setText("구진 (3단계)");
-            holder.checkBoxHome.setChecked(true);
-            holder.checkBoxHospital.setChecked(true);
-            holder.checkBoxInfection.setChecked(true);
+            holder.resultTypeTextView.setText("구진");
             holder.cureTextView.setText("절대로 압출하면 안됩니다.\n고름이 생성될 때 까지 기다리고 압출하거나, 여드름 치료제로 관리를 해야합니다.");
+            holder.seriousImage.setImageResource(R.drawable.three);
+            holder.salveView.setText("- 바르는 약\n- 먹는 약");
 
         }else if(typeNumber.equals("4") == true){
-            holder.resultTypeTextView.setText("농포 (4단계)");
-            holder.checkBoxHome.setChecked(true);
-            holder.checkBoxHospital.setChecked(true);
-            holder.checkBoxInfection.setChecked(true);
+            holder.resultTypeTextView.setText("농포");
             holder.cureTextView.setText("압출이 가능하지만 권장하지 않습니다.\n압출 후, 여드름 흉터가 될 확률이 매우 높습니다. 병원 치료를 권장합니다.");
+            holder.seriousImage.setImageResource(R.drawable.four);
+            holder.salveView.setText("- 바르는 약\n- 먹는 약");
 
         }else if(typeNumber.equals("5") == true){
-            holder.resultTypeTextView.setText("결절, 낭종 (5단계)");
-            holder.checkBoxHome.setChecked(false);
-            holder.checkBoxHospital.setChecked(true);
-            holder.checkBoxInfection.setChecked(true);
-            holder.cureTextView.setText("압출 되지 않으며, 연고를 발라도 효과가 미치지 않습니다. 병원에서 적절한 치료를 받아야 합니다.");
+            holder.resultTypeTextView.setText("결절, 낭종");
+            holder.cureTextView.setText("압출 되지 않으며, 연고를 발라도 효과가 미치지 않습니다. \n병원에서 적절한 치료를 받아야 합니다.");
+            holder.seriousImage.setImageResource(R.drawable.five);
+            holder.salveView.setText("- 바르는 약\n- 먹는 약");
 
         }else{
             holder.resultTypeTextView.setText("존재하지 않음");
-            holder.checkBoxHome.setChecked(false);
-            holder.checkBoxHospital.setChecked(false);
-            holder.checkBoxInfection.setChecked(false);
             holder.cureTextView.setText("존재하지 않는 내용");
+            holder.seriousImage.setImageResource(R.drawable.acne);
+            holder.salveView.setText("존재하지 않는 내용");
         }
 
     }
